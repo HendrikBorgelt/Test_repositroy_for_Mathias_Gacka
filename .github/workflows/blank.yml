@@ -21,22 +21,20 @@ jobs:
   build:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
+    permissions:
+      issues: write
 
-   
-
-   
-    steps:
-     
-      - uses: actions/checkout@v3
-
-      # Runs a single command using the runners shell
-      - name: Run a one-line script
-        run: echo Hello, world!
-
-      # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
+      steps:
+        - name: Create issue using REST API
         run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
+          curl --request POST \
+          --url https://api.github.com/repos/${{ https://github.com/matze2402/test_repository.git }}/issues \
+          --header 'authorization: Bearer ${{ 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 }}' \
+          --header 'content-type: application/json' \
+          --data '{
+            "title": "Automated issue for commit: ${{ github.sha }}",
+            "body": "This issue was automatically created by the GitHub Action workflow **${{ github.workflow }}**. \n\n The commit hash was: _${{ github.sha }}_."
+            }' \
+          --fail 
 
         

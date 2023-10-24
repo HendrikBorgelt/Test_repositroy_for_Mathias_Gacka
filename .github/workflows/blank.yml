@@ -13,7 +13,7 @@ jobs:
       - env: 
           GH_Token: "${{ secrets.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 }}"
         run: |
-          curl --request PUSH \
+          curl --request POST \
           --url https://api.github.com/repos/HendrikBorgelt/Test_repositroy_for_Mathias_Gacka/issues \
           --header "authorization: Bearer secrets.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" \
           --header "content-type: application/json" \

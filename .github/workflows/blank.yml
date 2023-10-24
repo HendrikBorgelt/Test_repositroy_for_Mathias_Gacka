@@ -4,7 +4,9 @@ name: CI
 
 # Controls when the workflow will run
 on:
- 
+
+ access-token: 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
+  
   push:
     paths: ["https://github.com/matze2402/test_repository.git"]
   #pull_request:

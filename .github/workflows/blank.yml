@@ -1,7 +1,7 @@
 ---
 
 name: Create issue on commit
-
+ 
 on: [push]
 
 jobs:
@@ -11,15 +11,15 @@ jobs:
       issues: write
     steps:
       - name: Create issue using REST API
-        run : |
+        run: |
           curl --request POST \
           --url https://api.github.com/repos/${{ https://github.com/matze2402/test_repository.git }}/issues \
           --header 'authorization: Bearer ${{ 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 }}' \
           --header 'content-type: application/json' \
           --data '{
             "title": "Automated issue for commit: ${{ github.sha }}",
-            "body": "This issue was automatically created by the GitHub Action workflow **${{ github.workflow }}**. \n\n The commit hash was: _${{ github.sha }}_." 
-              }' \
-            --fail 
+            "body": "This issue was automatically created by the GitHub Action workflow **${{ github.workflow }}**. \n\n The commit hash was: _${{ github.sha }}_."
+            }' \
+          --fail
 
         

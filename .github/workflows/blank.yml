@@ -10,7 +10,8 @@ jobs:
     permissions:
       issues: write
     steps:
-      - name: Create issue using REST API
+      - env: 
+           GH_Token: ${{ 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 }}
         run: |
           curl --request POST \
           --url https://api.github.com/repos/HendrikBorgelt/Test_repositroy_for_Mathias_Gacka/issues \

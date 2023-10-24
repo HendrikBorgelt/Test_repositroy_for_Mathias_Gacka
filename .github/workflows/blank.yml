@@ -1,30 +1,15 @@
 ---
 
-name: CI
+name: Create issue on commit
 
-# Controls when the workflow will run
-on:
-
- 
-  
-  push:
-    paths: ["https://github.com/matze2402/test_repository.git"]
-  #pull_request:
-    #branches: [ "main" ]
-
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
-
+on: [ push ]
 
 jobs:
-  # This workflow contains a single job called "build"
-  build:
-    # The type of runner that the job will run on
+  create_issue:
     runs-on: ubuntu-latest
     permissions:
       issues: write
-
-      steps:
+    steps:
         - name: Create issue using REST API
           run: |
             curl --request POST \

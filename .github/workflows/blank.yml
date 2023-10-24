@@ -11,7 +11,7 @@ jobs:
       issues: write
     steps:
       - name: Create issue using REST API
-        run: |
+        run : |
           curl --request POST \
           --url https://api.github.com/repos/${{ https://github.com/matze2402/test_repository.git }}/issues \
           --header 'authorization: Bearer ${{ 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 }}' \

@@ -11,11 +11,11 @@ jobs:
       issues: write
     steps:
       - env: 
-          GH_Token: "${{ secrets.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 }}"
+          GH_Token: "${{ secrets.personal_accesstoken }}"
         run: |
           curl --request POST \
           --url https://github.com/matze2402/test_repository.git \
-          --header "authorization: Bearer secrets.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" \
+          --header "authorization: Bearer secrets.personal_accesstoken" \
           --header "content-type: application/json" \
           --data '{ "title": "Automated issue for commit: ${{ github.sha }}", "body": "This issue was automatically created by the GitHub Action workflow. \n\n The commit hash was: _${{ github.sha }}_." }' \
           --fail
